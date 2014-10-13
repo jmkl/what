@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright © 2014 jmkl <dcsms@live.com>
+This work is free. You can redistribute it and/or modify it under the
+terms of the Do What The Fuck You Want To Public License, Version 2,
+as published by Sam Hocevar. See the COPYING file for more details.
+-->
+
+
+<Lockscreen version="1" displayDesktop="true" frameRate="30" screenWidth="720">
+	<Var name="w" expression="#screen_width" const="true" />
+	<Var name="h" expression="#screen_height" const="true" />
+	<Var name="ptg" expression="#h/10" const="true" />
+	<Var name="mmax" expression="0+#ul.move_x" />
+	<Var name="mmin" expression="0-#ul.move_x" />
+	<VirtualScreen name="vs">
+		<Wallpaper />
+		<Time src="jam.png" align="center" y="410" x="#w/2" />
+	</VirtualScreen>
+	<Group name="shit">
+		<Image x="#mmax" y="#ptg*9" srcY="#ptg*9" w="#w" h="#ptg" useVirtualScreen="true" src="vs" srcX="0" srcW="#w" srcH="#ptg" />
+		<Image x="#mmin" y="#ptg*8" srcY="#ptg*8" w="#w" h="#ptg" useVirtualScreen="true" src="vs" srcX="0" srcW="#w" srcH="#ptg" />
+		<Image x="#mmax" y="#ptg*7" srcY="#ptg*7" w="#w" h="#ptg" useVirtualScreen="true" src="vs" srcX="0" srcW="#w" srcH="#ptg" />
+		<Image x="#mmin" y="#ptg*6" srcY="#ptg*6" w="#w" h="#ptg" useVirtualScreen="true" src="vs" srcX="0" srcW="#w" srcH="#ptg" />
+		<Image x="#mmax" y="#ptg*5" srcY="#ptg*5" w="#w" h="#ptg" useVirtualScreen="true" src="vs" srcX="0" srcW="#w" srcH="#ptg" />
+		<Image x="#mmin" y="#ptg*4" srcY="#ptg*4" w="#w" h="#ptg" useVirtualScreen="true" src="vs" srcX="0" srcW="#w" srcH="#ptg" />
+		<Image x="#mmax" y="#ptg*3" srcY="#ptg*3" w="#w" h="#ptg" useVirtualScreen="true" src="vs" srcX="0" srcW="#w" srcH="#ptg" />
+		<Image x="#mmin" y="#ptg*2" srcY="#ptg*2" w="#w" h="#ptg" useVirtualScreen="true" src="vs" srcX="0" srcW="#w" srcH="#ptg" />
+		<Image x="#mmax" y="#ptg" srcY="#ptg" w="#w" h="#ptg" useVirtualScreen="true" src="vs" srcX="0" srcW="#w" srcH="#ptg" />
+		<Image x="#mmin" y="0" srcY="0" w="#w" h="#ptg" useVirtualScreen="true" src="vs" srcX="0" srcW="#w" srcH="#ptg" />
+	</Group>
+	<Group name="hole">
+		<Image x="#mmax" y="#ptg*9" w="#w" h="#ptg" src="maskout.png" visibility="#ul.state" />
+		<Image x="#mmin" y="#ptg*8" w="#w" h="#ptg" src="maskin.png" visibility="#ul.state" />
+		<Image x="#mmax" y="#ptg*7" w="#w" h="#ptg" src="maskout.png" visibility="#ul.state" />
+		<Image x="#mmin" y="#ptg*6" w="#w" h="#ptg" src="maskin.png" visibility="#ul.state" />
+		<Image x="#mmax" y="#ptg*5" w="#w" h="#ptg" src="maskout.png" visibility="#ul.state" />
+		<Image x="#mmin" y="#ptg*4" w="#w" h="#ptg" src="maskin.png" visibility="#ul.state" />
+		<Image x="#mmax" y="#ptg*3" w="#w" h="#ptg" src="maskout.png" visibility="#ul.state" />
+		<Image x="#mmin" y="#ptg*2" w="#w" h="#ptg" src="maskin.png" visibility="#ul.state" />
+		<Image x="#mmax" y="#ptg" w="#w" h="#ptg" src="maskout.png" visibility="#ul.state" />
+		<Image x="#mmin" y="0" w="#w" h="#ptg" src="maskin.png" visibility="#ul.state" />
+	</Group>
+	<Unlocker name="ul" alwaysShow="true" bounceInitSpeed="1500" bounceAcceleration="3000">
+		<StartPoint x="0" y="0" w="#w/3" h="#h" />
+		<EndPoint x="#w/2" y="500" w="600" h="#h">
+			<Path x="0" y="#w-200" tolerance="520">
+				<Position x="0" y="0" />
+				<Position x="#w-200" y="0" />
+			</Path>
+		</EndPoint>
+	</Unlocker>
+</Lockscreen>
